@@ -110,7 +110,7 @@ exports = module.exports = function (args) {
     }).catch(function (e) {
       error(vm.name_label, e.stack || e);
     });
-  }).all();
+  }).all().return();
 };
 
 exports.help = wrap(
