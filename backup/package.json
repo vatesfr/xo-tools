@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "dependencies": {
+    "bluebird": "^2.2.2",
+    "exec-promise": "^0.3.0",
+    "inquirer": "^0.5.1",
+    "lodash.filter": "^2.4.1",
+    "minimist": "^0.2.0",
+    "xo-lib": "^0.1.0"
+  }
+}
