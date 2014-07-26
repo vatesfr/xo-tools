@@ -82,7 +82,7 @@ exports = module.exports = function (args) {
       type: 'VM',
       'power_state': 'Running',
     });
-  }).each(function (vm) {
+  }).map(function (vm) {
     return xo.call('vm.snapshot', {
       id: 'id' in vm ? vm.id : vm.UUID,
       name: vm['name_label'] +'_'+ (new Date().toISOString()),
