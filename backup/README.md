@@ -36,16 +36,6 @@ Usage: xo-backup --token <token> <url>
   If not provided, the password will be asked.
 ```
 
-## Example
-
-```
-$ xo-backup --user admin@admin.net http://xoa.mycompany.com/api/
-[?] Password: *****
-✔ vm1 snapshotted
-✔ vm2 snapshotted
-✔ vm3 snapshotted
-```
-
 ## ChangeLog
 
 #### v0.2.0 (2014-07-26)
