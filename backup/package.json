@@ -1,6 +1,6 @@
 {
   "name": "xo-backup",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "ISC",
   "description": "Order Xen-Orchestra to snapshot all running VMs",
   "keywords": [
