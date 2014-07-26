@@ -39,6 +39,14 @@ Usage: xo-backup [--max-snapshots <n>] --token <token> <url>
   If defined, all (automatic) snapshots but the last <n> will be deleted.
 ```
 
+### With Cron
+
+Here is an example for making a snapshot every night at 2am with 7 days of history:
+
+```
+30 2 * * * xo-backup --max-snapshots 7 --user admin@admin.net --password admin http://xo.company.tld/api/
+```
+
 ## ChangeLog
 
 #### v0.2.0 (2014-07-26)
