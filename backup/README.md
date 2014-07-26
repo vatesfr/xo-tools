@@ -20,11 +20,10 @@ You need `nodejs` to install this tool. Then, just type:
 
 For the complete usage, use the help argument:
 
-`xo-backup -help`
-
 ```
-Usage: backup --token <token> <url>
-       backup --user <user> [--password <password>] <url>
+> xo-backup --help
+Usage: xo-backup --token <token> <url>
+       xo-backup --user <user> [--password <password>] <url>
 
 <url>
   URL of the XO instance to connect to (http://xo.company.tld/api/).
@@ -40,6 +39,6 @@ Usage: backup --token <token> <url>
 ## Example
 
 ```
-$ xo-backup --user xoadmin http://xoa.mycompany.com/api
+$ xo-backup --user admin@ædmin.net http://xoa.mycompany.com/api/
 [?] Password: *****
 ```
