@@ -85,7 +85,7 @@ exports = module.exports = function (args) {
   }).map(function (vm) {
     return xo.call('vm.snapshot', {
       id: 'id' in vm ? vm.id : vm.UUID,
-      name: vm['name_label'] +'_'+ (new Date().toISOString()),
+      name: vm.name_label +'_'+ (new Date().toISOString()),
     });
   }).all();
 };
