@@ -24,7 +24,7 @@ join = join.call.bind(join);
 
 var log = function (message) {
   message = join(arguments, ' ');
-  console.log(logSymbols.success, log);
+  console.log(logSymbols.success, message);
 };
 
 var error = function (message) {
