@@ -23,25 +23,25 @@ For the complete usage, use the help argument:
 ```
 > xo-backup --help
 Usage: xo-backup --token <token> <url>
-		xo-backup --user <user> [--password <password>] <url>
+       xo-backup --user <user> [--password <password>] <url>
 
 <url>
-	URL of the XO instance to connect to (http://xo.company.tld/api/).
+  URL of the XO instance to connect to (http://xo.company.tld/api/).
 
 <token>
-	Token to use for authentication.
+  Token to use for authentication.
 
 <user>, <password>
-	User/password to use for authentication.
-	If not provided, the password will be asked.
+  User/password to use for authentication.
+  If not provided, the password will be asked.
 ```
 
 ## Example
 
 ```
-$ xo-backup --user admin@admin.net http://xoa.mycompany.com/api
+$ xo-backup --user admin@admin.net http://xoa.mycompany.com/api/
 [?] Password: *****
-✔︎ vm1 snapshotted
-✔︎ vm2 snapshotted
-✔︎ vm3 snapshotted
+✔ vm1 snapshotted
+✔ vm2 snapshotted
+✔ vm3 snapshotted
 ```
