@@ -5,9 +5,11 @@
 //====================================================================
 
 var filter = require('lodash.filter');
+var indexBy = require('lodash.indexby');
 var inquirer = require('inquirer');
 var logSymbols = require('log-symbols');
 var minimist = require('minimist');
+var pick = require('lodash.pick');
 var Promise = require('bluebird');
 var Xo = require('xo-lib');
 
@@ -43,10 +45,11 @@ exports = module.exports = function (args) {
   // Parse arguments.
   args = minimist(args, {
     boolean: 'help',
-    string: 'token user password'.split(' '),
+    string: 'token user password max-snapshots'.split(' '),
 
     alias: {
       help: 'h',
+      'max-snapshots': 'n',
     }
   });
 
@@ -60,6 +63,7 @@ exports = module.exports = function (args) {
 
   var xo = new Xo(args._[0]);
 
+  var snapshots;
   return Promise.try(function () {
     if (args.token) {
       return xo.call('session.signInWithToken', {
@@ -97,6 +101,10 @@ exports = module.exports = function (args) {
   }).then(function () {
     return xo.call('xo.getAllObjects');
   }).then(function (objects) {
+    snapshots = indexBy(filter(objects, {
+      type: 'VM-snapshot',
+    }), 'ref');
+
     return filter(objects, {
       type: 'VM',
       'power_state': 'Running',
@@ -104,11 +112,45 @@ exports = module.exports = function (args) {
   }).map(function (vm) {
     return xo.call('vm.snapshot', {
       id: 'id' in vm ? vm.id : vm.UUID,
-      name: new Date().toISOString(),
+      name: 'auto-'+ (new Date().toISOString()),
     }).then(function () {
       log(vm.name_label, 'snapshotted');
+
+      if (!args['max-snapshots']) {
+        return;
+      }
+
+      // Select existing automatic snapshots.
+      var vmSnapshots = filter(
+        pick(snapshots, vm.snapshots),
+        function (snapshot) {
+          return /^auto-/.test(snapshot.name_label);
+        }
+      );
+
+      // Take all but the (n - 1) recent ones.
+      vmSnapshots = vmSnapshots.sort(function (a, b) {
+        return Date.parse(a.snapshot_time) - Date.parse(b.snapshot_time);
+      }).slice(0, vmSnapshots.length - args['max-snapshots'] + 1);
+
+      // Delete them.
+      return Promise.map(vmSnapshots, function (snapshot) {
+        return xo.call('vm.delete', {
+          id: 'id' in snapshot ? snapshot.id : snapshot.UUID,
+          delete_disks: true,
+        }).then(function () {
+          log(vm.name_label, 'old snapshot deleted', snapshot.name_label);
+        }).catch(function (e) {
+          error(
+            vm.name_label,
+            'old snapshot deletion failed',
+            snapshot.name_label,
+            e.stack || e
+          );
+        });
+      });
     }).catch(function (e) {
-      error(vm.name_label, e.stack || e);
+      error(vm.name_label, 'snapshot failed', e.stack || e);
     });
   }).all().return();
 };

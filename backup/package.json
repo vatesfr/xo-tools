@@ -30,6 +30,8 @@
     "exec-promise": "^0.3.0",
     "inquirer": "^0.5.1",
     "lodash.filter": "^2.4.1",
+    "lodash.indexby": "^2.4.1",
+    "lodash.pick": "^2.4.1",
     "log-symbols": "^1.0.0",
     "minimist": "^0.2.0",
     "xo-lib": "^0.1.0"
