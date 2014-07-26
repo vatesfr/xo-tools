@@ -18,8 +18,6 @@ You need `nodejs` to install this tool. Then, just type:
 
 ## Usage
 
-For the complete usage, use the help argument:
-
 ```
 > xo-backup --help
 Usage: xo-backup [--max-snapshots <n>] --token <token> <url>
@@ -58,3 +56,14 @@ Here is an example for making a snapshot every night at 2am with 7 days of histo
 
 #### v0.1.0 (2014-07-26)
 - Initial release.
+
+## Contributions
+
+Contributions are *very* welcomed, either on the documentation or on
+the code.
+
+You may:
+
+- report any [issue](https://github.com/vatesfr/xo-tools/issues)
+  you've encountered;
+- fork and create a pull request.
