@@ -45,3 +45,15 @@ $ xo-backup --user admin@admin.net http://xoa.mycompany.com/api/
 ✔ vm2 snapshotted
 ✔ vm3 snapshotted
 ```
+
+## ChangeLog
+
+#### v0.2.0 (2014-07-26)
+- Can delete all but the last n snapshots.
+- Package prefer to be installed globally.
+
+#### v0.1.1 (2014-07-26)
+- Help message now includes the version.
+
+#### v0.1.0 (2014-07-26)
+- Initial release.
