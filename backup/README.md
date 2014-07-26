@@ -11,12 +11,29 @@ We choose to create a snapshot of all your **running** VMs, on all XO connected 
 ## Installation
 
 You need `nodejs` to install this tool. Then, just type:
+
 `sudo npm install -g xo-backup`
 
 ## Usage
 
-For the complete usage, use the help:
+For the complete usage, use the help argument:
+
 `xo-backup -help`
+
+```
+Usage: backup --token <token> <url>
+       backup --user <user> [--password <password>] <url>
+
+<url>
+  URL of the XO instance to connect to (http://xo.company.tld/api/).
+
+<token>
+  Token to use for authentication.
+
+<user>, <password>
+  User/password to use for authentication.
+  If not provided, the password will be asked.
+```
 
 ## Example
 
