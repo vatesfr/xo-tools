@@ -13,7 +13,7 @@
   "homepage": "https://github.com/vatesfr/xo-tools/tree/master/backup",
   "bugs": "https://github.com/vatesfr/xo-tools/issues",
   "author": "Julien Fontanet <julien.fontanet@isonoe.net>",
-  "preferGlobal": false,
+  "preferGlobal": true,
   "main": "cli.js",
   "bin": {
     "xo-backup": "cli.js"
