@@ -6,6 +6,7 @@
 
 var filter = require('lodash.filter');
 var inquirer = require('inquirer');
+var logSymbols = require('log-symbols');
 var minimist = require('minimist');
 var Promise = require('bluebird');
 var Xo = require('xo-lib');
@@ -16,6 +17,24 @@ var wrap = function (val) {
   return function () {
     return val;
   };
+};
+
+var join = Array.prototype.join;
+join = join.call.bind(join);
+
+var log = function (message) {
+  message = join(arguments, ' ');
+  console.log(logSymbols.success, log);
+};
+
+var error = function (message) {
+  message = join(arguments, ' ');
+  console.error(logSymbols.error, message);
+};
+
+var fatal = function (message) {
+  message = join(arguments, ' ');
+  throw logSymbols.error +' '+ message;
 };
 
 //====================================================================
@@ -36,7 +55,7 @@ exports = module.exports = function (args) {
   }
 
   if (!args._.length) {
-    throw 'missing <url>';
+    fatal('missing <url>');
   }
 
   var xo = new Xo(args._[0]);
@@ -49,7 +68,7 @@ exports = module.exports = function (args) {
     }
 
     if (!args.user) {
-      throw 'missing <token> or <user>';
+      fatal('missing <token> or <user>');
     }
 
     return new Promise(function (resolve) {
