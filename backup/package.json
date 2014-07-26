@@ -19,7 +19,7 @@
     "xo-backup": "cli.js"
   },
   "files": [
-    "cli.js",
+    "cli.js"
   ],
   "repository": {
     "type": "git",
