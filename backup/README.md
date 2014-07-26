@@ -1,4 +1,5 @@
-# Backup tool
+Backup tool
+========
 
 This tool aims to provide automated backup solution for your VMs (with the help of XO), until we implement this feature directly in the web interface.
 
