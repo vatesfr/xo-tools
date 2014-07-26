@@ -1,5 +1,6 @@
 {
   "name": "xo-backup",
+  "version": "0.0.0",
   "license": "ISC",
   "description": "Order Xen-Orchestra to snapshot all running VMs",
   "keywords": [
@@ -17,6 +18,9 @@
   "bin": {
     "xo-backup": "cli.js"
   },
+  "files": [
+    "cli.js",
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/vatesfr/xo-tools.git"
