@@ -22,8 +22,8 @@ For the complete usage, use the help argument:
 
 ```
 > xo-backup --help
-Usage: xo-backup --token <token> <url>
-       xo-backup --user <user> [--password <password>] <url>
+Usage: xo-backup [--max-snapshots <n>] --token <token> <url>
+       xo-backup [--max-snapshots <n>] --user <user> [--password <password>] <url>
 
 <url>
   URL of the XO instance to connect to (http://xo.company.tld/api/).
@@ -34,6 +34,9 @@ Usage: xo-backup --token <token> <url>
 <user>, <password>
   User/password to use for authentication.
   If not provided, the password will be asked.
+
+<n>
+  If defined, all (automatic) snapshots but the last <n> will be deleted.
 ```
 
 ## ChangeLog

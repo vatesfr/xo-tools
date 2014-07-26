@@ -158,8 +158,8 @@ exports = module.exports = function (args) {
 exports.help = wrap((function (pkg) {
   var name = pkg.name;
 
-  return 'Usage: '+ name +' --token <token> <url>\n'+
-    '       '+ name +' --user <user> [--password <password>] <url>\n'+
+  return 'Usage: '+ name +' [--max-snapshots <n>] --token <token> <url>\n'+
+    '       '+ name +' [--max-snapshots <n>] --user <user> [--password <password>] <url>\n'+
     '\n'+
     '<url>\n'+
     '  URL of the XO instance to connect to (http://xo.company.tld/api/).\n'+
@@ -170,6 +170,9 @@ exports.help = wrap((function (pkg) {
     '<user>, <password>\n'+
     '  User/password to use for authentication.\n'+
     '  If not provided, the password will be asked.\n'+
+    '\n'+
+    '<n>\n'+
+    '  If defined, all (automatic) snapshots but the last <n> will be deleted.\n'+
     '\n'+
     name +' v'+ pkg.version
   ;
