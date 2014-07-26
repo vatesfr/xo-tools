@@ -113,20 +113,25 @@ exports = module.exports = function (args) {
   }).all().return();
 };
 
-exports.help = wrap(
-  'Usage: backup --token <token> <url>\n'+
-  '       backup --user <user> [--password <password>] <url>\n'+
-  '\n'+
-  '<url>\n'+
-  '  URL of the XO instance to connect to (http://xo.company.tld/api/).\n'+
-  '\n'+
-  '<token>\n'+
-  '  Token to use for authentication.\n'+
-  '\n'+
-  '<user>, <password>\n'+
-  '  User/password to use for authentication.\n'+
-  '  If not provided, the password will be asked.'
-);
+exports.help = wrap((function (pkg) {
+  var name = pkg.name;
+
+  return 'Usage: '+ name +' --token <token> <url>\n'+
+    '       '+ name +' --user <user> [--password <password>] <url>\n'+
+    '\n'+
+    '<url>\n'+
+    '  URL of the XO instance to connect to (http://xo.company.tld/api/).\n'+
+    '\n'+
+    '<token>\n'+
+    '  Token to use for authentication.\n'+
+    '\n'+
+    '<user>, <password>\n'+
+    '  User/password to use for authentication.\n'+
+    '  If not provided, the password will be asked.\n'+
+    '\n'+
+    name +' v'+ pkg.version
+  ;
+})(require('./package')));
 
 //====================================================================
 
