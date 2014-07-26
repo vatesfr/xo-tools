@@ -1,5 +1,26 @@
 {
-  "private": true,
+  "name": "xo-backup",
+  "license": "ISC",
+  "description": "Order Xen-Orchestra to snapshot all running VMs",
+  "keywords": [
+    "xen",
+    "orchestra",
+    "xen-orchestra",
+    "backup",
+    "snapshot"
+  ],
+  "homepage": "https://github.com/vatesfr/xo-tools/tree/master/backup",
+  "bugs": "https://github.com/vatesfr/xo-tools/issues",
+  "author": "Julien Fontanet <julien.fontanet@isonoe.net>",
+  "preferGlobal": false,
+  "main": "cli.js",
+  "bin": {
+    "xo-backup": "cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vatesfr/xo-tools.git"
+  },
   "dependencies": {
     "bluebird": "^2.2.2",
     "exec-promise": "^0.3.0",

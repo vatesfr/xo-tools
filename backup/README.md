@@ -1,5 +1,6 @@
-Backup tool
-========
+# Backup
+
+> Order Xen-Orchestra to snapshot all running VMs.
 
 This tool aims to provide automated backup solution for your VMs (with the help of XO), until we implement this feature directly in the web interface.
 
