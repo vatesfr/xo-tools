@@ -12,9 +12,11 @@ We choose to create a snapshot of all your **running** VMs, on all XO connected 
 
 ## Installation
 
-You need `nodejs` to install this tool. Then, just type:
+Install [Node.js](http://nodejs.org/download/), then the [xo-backup](https://www.npmjs.org/package/xo-backup) package:
 
-`sudo npm install -g xo-backup`
+```
+npm install -g xo-backup
+```
 
 ## Usage
 
