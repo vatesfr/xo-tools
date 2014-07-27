@@ -130,7 +130,7 @@ exports = module.exports = function (args) {
 
       // Take all but the (n - 1) recent ones.
       vmSnapshots = vmSnapshots.sort(function (a, b) {
-        return Date.parse(a.snapshot_time) - Date.parse(b.snapshot_time);
+        return a.snapshot_time - b.snapshot_time;
       }).slice(0, vmSnapshots.length - args['max-snapshots'] + 1);
 
       // Delete them.
