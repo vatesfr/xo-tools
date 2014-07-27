@@ -145,12 +145,16 @@ exports = module.exports = function (args) {
             vm.name_label,
             'old snapshot deletion failed',
             snapshot.name_label,
-            e.stack || e
+            JSON.stringify(e.stack || e, null, 2)
           );
         });
       });
     }).catch(function (e) {
-      error(vm.name_label, 'snapshot failed', e.stack || e);
+      error(
+        vm.name_label,
+        'snapshot failed',
+        JSON.stringify(e.stack || e, null, 2)
+      );
     });
   }).all().return();
 };
