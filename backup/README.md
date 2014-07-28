@@ -56,6 +56,10 @@ sudo npm update --global xo-backup
 
 ## ChangeLog
 
+#### v0.2.2 (2014-07-28)
+- Colors in the help message.
+- Nicer URLs thanks to latest xo-lib.
+
 #### v0.2.1 (2014-07-28)
 - Fix snapshots sorting before deletion.
 - Fix error messages.
