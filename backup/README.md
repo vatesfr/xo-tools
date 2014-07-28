@@ -26,7 +26,7 @@ Usage: xo-backup [--max-snapshots <n>] --token <token> <url>
        xo-backup [--max-snapshots <n>] --user <user> [--password <password>] <url>
 
 <url>
-  URL of the XO instance to connect to (http://xo.company.tld/api/).
+  URL of the XO instance to connect to (http://xo.company.tld).
 
 <token>
   Token to use for authentication.
@@ -44,7 +44,7 @@ Usage: xo-backup [--max-snapshots <n>] --token <token> <url>
 Here is an example for making a snapshot every night at 2am with 7 days of history:
 
 ```
-30 2 * * * xo-backup --max-snapshots 7 --user admin@admin.net --password admin http://xo.company.tld/api/
+30 2 * * * xo-backup --max-snapshots 7 --user admin@admin.net --password admin http://xo.company.tld
 ```
 ## Update
 

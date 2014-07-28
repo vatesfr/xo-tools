@@ -167,7 +167,7 @@ exports.help = wrap((function (pkg) {
     '       '+ name +' [--max-snapshots <n>] --user <user> [--password <password>] <url>\n'+
     '\n'+
     '<url>\n'+
-    '  URL of the XO instance to connect to (http://xo.company.tld/api/).\n'+
+    '  URL of the XO instance to connect to (http://xo.company.tld).\n'+
     '\n'+
     '<token>\n'+
     '  Token to use for authentication.\n'+
