@@ -49,6 +49,10 @@ Here is an example for making a snapshot every night at 2am with 7 days of histo
 
 ## ChangeLog
 
+#### v0.2.1 (2014-07-28)
+- Fix snapshots sorting before deletion.
+- Fix error messages.
+
 #### v0.2.0 (2014-07-26)
 - Can delete all but the last n snapshots.
 - Package prefer to be installed globally.
