@@ -46,6 +46,13 @@ Here is an example for making a snapshot every night at 2am with 7 days of histo
 ```
 30 2 * * * xo-backup --max-snapshots 7 --user admin@admin.net --password admin http://xo.company.tld/api/
 ```
+## Update
+
+Thanks to `npm`, it's trivial to update this tool:
+
+```
+sudo npm update --global xo-backup
+```
 
 ## ChangeLog
 
