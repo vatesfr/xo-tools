@@ -4,6 +4,7 @@
 
 //====================================================================
 
+var chalk = require('chalk');
 var filter = require('lodash.filter');
 var indexBy = require('lodash.indexby');
 var inquirer = require('inquirer');
@@ -160,9 +161,9 @@ exports = module.exports = function (args) {
 };
 
 exports.help = wrap((function (pkg) {
-  var name = pkg.name;
+  var name = chalk.bold(pkg.name);
 
-  return 'Usage: '+ name +' [--max-snapshots <n>] --token <token> <url>\n'+
+  var usage = 'Usage: '+ name +' [--max-snapshots <n>] --token <token> <url>\n'+
     '       '+ name +' [--max-snapshots <n>] --user <user> [--password <password>] <url>\n'+
     '\n'+
     '<url>\n'+
@@ -180,6 +181,10 @@ exports.help = wrap((function (pkg) {
     '\n'+
     name +' v'+ pkg.version
   ;
+
+  return usage.replace(/<([^>]+)>/g, function (_, match) {
+    return '<'+ chalk.yellow(match) +'>';
+  });
 })(require('./package')));
 
 //====================================================================
