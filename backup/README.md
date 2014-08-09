@@ -56,6 +56,9 @@ sudo npm update --global xo-backup
 
 ## ChangeLog
 
+#### v0.2.3 (2014-08-09)
+- Display usage when an argument is missing.
+
 #### v0.2.2 (2014-07-28)
 - Colors in the help message.
 - Nicer URLs thanks to latest xo-lib.
