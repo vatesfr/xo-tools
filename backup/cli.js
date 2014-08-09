@@ -10,6 +10,7 @@ var indexBy = require('lodash.indexby');
 var inquirer = require('inquirer');
 var logSymbols = require('log-symbols');
 var minimist = require('minimist');
+var multiline = require('multiline');
 var pick = require('lodash.pick');
 var Promise = require('bluebird');
 var Xo = require('xo-lib');
@@ -59,7 +60,7 @@ exports = module.exports = function (args) {
   }
 
   if (!args._.length) {
-    fatal('missing <url>');
+    fatal('missing <url>\n\n'+ exports.help());
   }
 
   var xo = new Xo(args._[0]);
@@ -73,7 +74,7 @@ exports = module.exports = function (args) {
     }
 
     if (!args.user) {
-      fatal('missing <token> or <user>');
+      fatal('missing <token> or <user>\n\n'+ exports.help());
     }
 
     return new Promise(function (resolve) {
@@ -163,27 +164,34 @@ exports = module.exports = function (args) {
 exports.help = wrap((function (pkg) {
   var name = chalk.bold(pkg.name);
 
-  var usage = 'Usage: '+ name +' [--max-snapshots <n>] --token <token> <url>\n'+
-    '       '+ name +' [--max-snapshots <n>] --user <user> [--password <password>] <url>\n'+
-    '\n'+
-    '<url>\n'+
-    '  URL of the XO instance to connect to (http://xo.company.tld).\n'+
-    '\n'+
-    '<token>\n'+
-    '  Token to use for authentication.\n'+
-    '\n'+
-    '<user>, <password>\n'+
-    '  User/password to use for authentication.\n'+
-    '  If not provided, the password will be asked.\n'+
-    '\n'+
-    '<n>\n'+
-    '  If defined, all (automatic) snapshots but the last <n> will be deleted.\n'+
-    '\n'+
-    name +' v'+ pkg.version
-  ;
+  return multiline.stripIndent(function () {/*
+    Usage: $name [--max-snapshots <n>] --token <token> <url>
+           $name [--max-snapshots <n>] --user <user> [--password <password>] <url>
 
-  return usage.replace(/<([^>]+)>/g, function (_, match) {
-    return '<'+ chalk.yellow(match) +'>';
+    <url>
+      URL of the XO instance to connect to (http://xo.company.tld).
+
+    <token>
+      Token to use for authentication.
+
+    <user>, <password>
+      User/password to use for authentication.
+      If not provided, the password will be asked.
+
+    <n>
+      If defined, all (automatic) snapshots but the last <n> will be deleted.
+
+    $name v$version
+  */}).replace(/<([^>]+)>|\$(\w+)/g, function (_, arg, key) {
+    if (arg) {
+      return '<'+ chalk.yellow(arg) +'>';
+    }
+
+    if ('name' === key) {
+      return name;
+    }
+
+    return pkg[key];
   });
 })(require('./package')));
 

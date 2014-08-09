@@ -35,6 +35,7 @@
     "lodash.pick": "^2.4.1",
     "log-symbols": "^1.0.0",
     "minimist": "^0.2.0",
+    "multiline": "^0.3.4",
     "xo-lib": "^0.2.0"
   }
 }
